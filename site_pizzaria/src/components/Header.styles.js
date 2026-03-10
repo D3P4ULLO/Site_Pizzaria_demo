@@ -15,7 +15,7 @@ export const Content = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
+// Logo é um Link estilizado, por isso usamos styled(Link)
 export const Logo = styled(Link)`
   font-size: 24px;
   font-weight: bold;
