@@ -20,7 +20,7 @@ export const Content = styled.div`
 `;
 // Logo é um Link estilizado, por isso usamos styled(Link)
 export const Logo = styled(Link)`
-  font-size: 24px;
+  font-size: 1.7rem;
   font-weight: bold;
   font-style: italic;
   text-decoration: none;
