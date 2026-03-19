@@ -1,8 +1,8 @@
-.app {
-  text-align: center;
-  padding-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Estrutura padrão da aplicação */
+main {
+  min-height: calc(100vh - 120px) /* Ajuste para a altura do header e footer */;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
 }
