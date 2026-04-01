@@ -46,19 +46,25 @@ export const HeroSection = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 36px;
+  font-size: 2rem;
   color: #222;
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 32px;
+  font-size: 2.4rem;
+  color: #222;
+  font-style: italic;
   margin: 40px 0 20px;
+  text-align: center;
+  padding: 2rem 0;
 `;
 
 export const ProductsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.3rem;
+  
 
   margin-bottom: 40px;
 `;
+
