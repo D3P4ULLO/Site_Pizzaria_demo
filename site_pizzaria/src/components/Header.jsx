@@ -11,7 +11,7 @@ function Header() {
   return (
     <Styles.HeaderContainer>
       <Styles.Content>
-        <Styles.Logo to="/">Pizzaria</Styles.Logo>
+        <Styles.Logo to="/">Inicio</Styles.Logo>
         <Styles.Nav>
           <Styles.NavLink to="/cardapio">Cardápio</Styles.NavLink>
           <Styles.NavLink to="/carrinho">

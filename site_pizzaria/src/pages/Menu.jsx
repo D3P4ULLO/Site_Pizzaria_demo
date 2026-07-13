@@ -1,19 +1,20 @@
-// Importações necessárias
 import { useState, useMemo } from "react";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
-
-// Importação de estilos
+import CustomSelect from "../components/CustomSelect";
 import * as Styles from "./Menu.styles";
 
 function Menu() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  const categories = useMemo(
-    () => ["All", ...new Set(products.map((p) => p.category))],
-    []
-  );
+  const categoryOptions = useMemo(() => {
+    const cats = ["All", ...new Set(products.map((p) => p.category))];
+    return cats.map((c) => ({
+      value: c,
+      label: c === "All" ? "Todas as categorias" : c,
+    }));
+  }, []);
 
   const filtered = products.filter((p) => {
     const matchCategory = category === "All" || p.category === category;
@@ -25,33 +26,35 @@ function Menu() {
 
   return (
     <section>
-      <div>
-        <div>
-          <select
+      <Styles.Container>
+        <Styles.PageTitle>Nosso Cardápio</Styles.PageTitle>
+
+        <Styles.FiltersBar>
+          <CustomSelect
+            options={categoryOptions}
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            {categories.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-          <input
-            type="text"
-            placeholder="Buscar..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={setCategory}
+            placeholder="Todas as categorias"
           />
-        </div>
-      </div>
-      <div>
-        {filtered.length > 0 ? (
-          filtered.map((p) => <ProductCard key={p.id} product={p} />)
-        ) : (
-          <p>Nenhum produto localizado</p>
-        )}
-      </div>
+
+          <Styles.SearchWrapper>
+            <Styles.SearchInput
+              type="text"
+              placeholder="Buscar no cardápio..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </Styles.SearchWrapper>
+        </Styles.FiltersBar>
+
+        <Styles.ProductsGrid>
+          {filtered.length > 0 ? (
+            filtered.map((p) => <ProductCard key={p.id} product={p} />)
+          ) : (
+            <Styles.EmptyMessage>Nenhum produto encontrado</Styles.EmptyMessage>
+          )}
+        </Styles.ProductsGrid>
+      </Styles.Container>
     </section>
   );
 }
