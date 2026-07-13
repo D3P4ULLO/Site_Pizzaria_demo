@@ -17,13 +17,14 @@ export const HeaderContainer = styled.header`
 
 export const Content = styled.div`
   max-width: 1200px;
+
   margin: auto;
   padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-
+// Logo é um Link estilizado, por isso usamos styled(Link)
 export const Logo = styled(Link)`
   font-family: var(--font-display);
   font-size: 28px;
